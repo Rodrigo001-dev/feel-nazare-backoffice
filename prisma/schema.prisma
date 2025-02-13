@@ -1,0 +1,40 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model CarSpotting {
+  id            Int      @id @default(autoincrement())
+  morada        String
+  nome          String
+  imageUrl      String?
+  tempoEstimado DateTime // Alterado para DateTime
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model users {
+  id                     Int       @id @default(autoincrement())
+  nome                   String
+  email                  String    @unique
+  password               String
+  cargo                  String?
+  contacto               String?
+  created_at             DateTime  @default(now())
+  updated_at             DateTime  @updatedAt
+  reset_token            String?
+  reset_token_expiration DateTime?
+}
+
+model locais {
+  id            Int       @id @default(autoincrement()) // Chave primária com autoincremento
+  morada        String // Campo 'morada' que é obrigatório
+  nome          String // Campo 'nome' que é obrigatório
+  imageUrl      String? // Campo 'imagem' que é opcional (pode ser nulo)
+  tempoEstimado DateTime? // Campo 'tempoEstimado' que é opcional (pode ser nulo)
+}

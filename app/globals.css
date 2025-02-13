@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+  @apply text-gray-700 bg-gray-50; /* Cor do texto e fundo padrão */
+}
+
+h1, h2, h3 {
+  @apply text-gray-800; /* Cabeçalhos com cor consistente */
+}
+
+/* globals.css ou qualquer outro arquivo de estilos global */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Aplica a Open Sans aos títulos */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Aplica a Open Sans aos parágrafos */
+p {
+  font-family: 'Poppins', sans-serif;
+}
