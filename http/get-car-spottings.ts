@@ -9,8 +9,8 @@ export async function getCarSpottings(): Promise<CarSpotting[]> {
       headers: {
         'Content-Type': 'application/json',
       },
-      cache: 'no-store',
       next: {
+        revalidate: 60, // Revalidate every 60 seconds
         tags: ['api/car-spottings'],
       },
     })
