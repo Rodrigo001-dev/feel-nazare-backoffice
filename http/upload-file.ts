@@ -1,8 +1,4 @@
-import type { PutObjectCommandInput } from '@aws-sdk/client-s3'
-import { Upload } from '@aws-sdk/lib-storage'
-
 import { env } from '@/env'
-import { s3Client } from '@/lib/s3-client'
 
 interface uploadFileParams {
   file: File
@@ -13,38 +9,38 @@ export async function uploadFile({
   file,
   onProgress,
 }: uploadFileParams): Promise<string> {
-  const fileKey = `${crypto.randomUUID()}-${file.name}`
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest()
+    const formData = new FormData()
+    formData.append('file', file)
 
-  const fileParams: PutObjectCommandInput = {
-    Bucket: env.NEXT_PUBLIC_BUCKET_NAME,
-    Key: fileKey,
-    ContentType: file.type,
-    Body: file,
-  }
+    // Configurar eventos de progresso
+    xhr.upload.addEventListener('progress', (event) => {
+      if (event.lengthComputable) {
+        const progressPercentage = Math.round(
+          (event.loaded / event.total) * 100,
+        )
+        onProgress?.(progressPercentage)
+      }
+    })
 
-  const upload = new Upload({
-    client: s3Client,
-    params: fileParams,
-    partSize: 1024 * 1024 * 5, // 5MB por parte
-    queueSize: 5, // número de uploads paralelos
+    // Configurar evento de conclusão
+    xhr.addEventListener('load', () => {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        const response = JSON.parse(xhr.responseText)
+        resolve(response.url)
+      } else {
+        reject(new Error('Failed to upload file'))
+      }
+    })
+
+    // Configurar evento de erro
+    xhr.addEventListener('error', () => {
+      reject(new Error('Failed to upload file'))
+    })
+
+    // Iniciar o upload
+    xhr.open('POST', `${env.NEXT_PUBLIC_API_URL}/upload`)
+    xhr.send(formData)
   })
-
-  // Configurar o evento de progresso
-  upload.on('httpUploadProgress', (progress) => {
-    if (progress.loaded && progress.total) {
-      const progressPercentage = Math.round(
-        (progress.loaded / progress.total) * 100,
-      )
-      onProgress?.(progressPercentage)
-    }
-  })
-
-  try {
-    await upload.done()
-
-    return `${env.NEXT_PUBLIC_BUCKET_URL}/${fileKey}`
-  } catch (error) {
-    console.error('Error uploading file:', error)
-    throw new Error('Failed to upload file')
-  }
 }
