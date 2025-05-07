@@ -92,13 +92,13 @@ export default function LoginPage() {
               htmlFor="password"
               className="block text-sm font-medium text-gray-600"
             >
-              Senha
+              Password
             </label>
             <input
               type="password"
               id="password"
               className="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Digite sua senha"
+              placeholder="Digite sua password"
               {...register('password')}
             />
             {errors.password && (
@@ -120,7 +120,7 @@ export default function LoginPage() {
         <div className="mt-4 w-full text-center">
           <Link href="/register">
             <button className="w-full rounded-lg bg-gray-600 py-2 text-white transition hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500">
-              Registrar
+              Registar
             </button>
           </Link>
         </div>
@@ -130,7 +130,7 @@ export default function LoginPage() {
             href="/forgot-password"
             className="text-sm text-blue-500 transition hover:text-blue-600 hover:underline"
           >
-            Esqueceu a senha?
+            Esqueci-me da Password?
           </Link>
         </div>
       </div>
