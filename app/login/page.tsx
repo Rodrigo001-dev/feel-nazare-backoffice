@@ -77,7 +77,7 @@ export default function LoginPage() {
               type="text"
               id="nome"
               className="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Digite seu nome"
+              placeholder="Insira seu nome"
               {...register('nome')}
             />
             {errors.nome && (
@@ -98,7 +98,7 @@ export default function LoginPage() {
               type="password"
               id="password"
               className="mt-2 w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Digite sua password"
+              placeholder="Insira sua password"
               {...register('password')}
             />
             {errors.password && (
@@ -113,7 +113,7 @@ export default function LoginPage() {
             disabled={isSubmitting}
             className="w-full rounded-lg bg-blue-600 py-2 text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
           >
-            {isSubmitting ? 'Entrando...' : 'Entrar'}
+            {isSubmitting ? 'A iniciar sessão...' : 'Entrar'}
           </button>
         </form>
 
@@ -130,7 +130,7 @@ export default function LoginPage() {
             href="/forgot-password"
             className="text-sm text-blue-500 transition hover:text-blue-600 hover:underline"
           >
-            Esqueci-me da Password?
+            Recuperar Password?
           </Link>
         </div>
       </div>

@@ -54,7 +54,7 @@ export default function ForgotPasswordPage() {
             <input
               type="email"
               className="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="Digite seu e-mail"
+              placeholder="Insira o seu email"
               {...register('email')}
             />
             {errors.email && (

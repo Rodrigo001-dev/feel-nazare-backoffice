@@ -55,31 +55,31 @@ export default function RegisterPage() {
       name: 'nome' as const,
       label: 'Nome',
       type: 'text',
-      placeholder: 'Digite seu nome',
+      placeholder: 'Insira seu nome',
     },
     {
       name: 'email' as const,
       label: 'E-mail',
       type: 'email',
-      placeholder: 'Digite seu e-mail',
+      placeholder: 'Insira o seu email',
     },
     {
       name: 'password' as const,
       label: 'Senha',
       type: 'password',
-      placeholder: 'Digite sua senha',
+      placeholder: 'Insira sua senha',
     },
     {
       name: 'cargo' as const,
       label: 'Cargo',
       type: 'text',
-      placeholder: 'Digite seu cargo',
+      placeholder: 'Insira seu cargo',
     },
     {
       name: 'contacto' as const,
       label: 'Contato',
       type: 'text',
-      placeholder: 'Digite seu contato',
+      placeholder: 'Insira seu contato',
     },
   ]
 

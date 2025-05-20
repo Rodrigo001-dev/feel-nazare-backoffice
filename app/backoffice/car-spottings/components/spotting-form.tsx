@@ -107,7 +107,7 @@ export function SpottingForm() {
       }
 
       customRevalidateTag('api/car-spottings')
-      toast.success('Car spotting salvo com sucesso!')
+      toast.success('Car spotting guardado com sucesso!!')
       reset()
       setSelectedFile(null)
     } catch (error) {
@@ -125,7 +125,7 @@ export function SpottingForm() {
           <input
             type="text"
             className="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Digite a morada"
+            placeholder="Insira a morada"
             {...register('morada')}
           />
           {errors.morada && (
@@ -142,7 +142,7 @@ export function SpottingForm() {
           <input
             type="text"
             className="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Digite o nome do local"
+            placeholder="Insira o nome do local"
             {...register('nome')}
           />
           {errors.nome && (

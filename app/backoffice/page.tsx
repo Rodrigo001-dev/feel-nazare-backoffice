@@ -61,10 +61,12 @@ export default async function BackofficePage() {
             )}
           </section>
 
-          {/* Seção Locais de Conselho */}
+          {/* Seção Locais de Aconselhamento */}
           <section className="rounded-lg bg-white p-6 shadow-md">
             <div className="flex items-center justify-between">
-              <h2 className="mb-4 text-2xl font-bold">Locais de Conselho</h2>
+              <h2 className="mb-4 text-2xl font-bold">
+                Locais de Aconselhamento
+              </h2>
 
               <Link
                 href="/backoffice/locais-conselho"

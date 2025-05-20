@@ -4,7 +4,7 @@ export default function LocaisConselhoLoading() {
   return (
     <div className="min-h-screen p-6">
       <h1 className="mb-8 text-center text-3xl font-bold">
-        Gerenciar Locais de Conselho
+        Gerir Locais de Aconselhamento
       </h1>
 
       {/* Skeleton do Formulário */}

@@ -108,7 +108,7 @@ export function LocalForm() {
       }
 
       customRevalidateTag('api/locais-concelho')
-      toast.success('Local salvo com sucesso!')
+      toast.success('Local guardado com sucesso!!')
       reset()
       setSelectedFile(null)
     } catch (error) {
@@ -126,7 +126,7 @@ export function LocalForm() {
           <input
             type="text"
             className="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Digite a morada"
+            placeholder="Insira a morada"
             {...register('morada')}
           />
           {errors.morada && (
@@ -141,7 +141,7 @@ export function LocalForm() {
           <input
             type="text"
             className="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Digite o nome do local"
+            placeholder="Insira o nome do local"
             {...register('nome')}
           />
           {errors.nome && (

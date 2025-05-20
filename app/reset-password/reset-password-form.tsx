@@ -69,7 +69,7 @@ export function ResetPasswordForm() {
           <input
             type="password"
             id="password"
-            placeholder="Digite sua nova senha"
+            placeholder="Insira sua nova senha"
             className="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
             {...register('password')}
           />

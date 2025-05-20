@@ -1,5 +1,6 @@
 import '../globals.css'
 
+import dayjs from 'dayjs'
 import Link from 'next/link'
 
 export default function BackofficeLayout({
@@ -36,7 +37,7 @@ export default function BackofficeLayout({
               href="/backoffice/locais-conselho"
               className="text-white hover:text-gray-200"
             >
-              Locais de Conselho
+              Locais de Aconselhamento
             </Link>
           </nav>
 
@@ -52,7 +53,10 @@ export default function BackofficeLayout({
 
       {/* Rodapé (opcional) */}
       <footer className="bg-gray-800 p-4 text-center text-white">
-        <p>&copy; 2024 Meu BackOffice. Todos os direitos reservados.</p>
+        <p>
+          &copy; {dayjs(new Date()).format('YYYY')} Feel Nazaré. Todos os
+          direitos reservados.
+        </p>
       </footer>
     </div>
   )

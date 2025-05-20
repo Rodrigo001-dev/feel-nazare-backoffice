@@ -43,7 +43,7 @@ export default function BackofficePageLoading() {
             </ul>
           </section>
 
-          {/* Skeleton Locais de Conselho */}
+          {/* Skeleton Locais de Aconselhamento */}
           <section className="rounded-lg bg-white p-6 shadow-md">
             <div className="flex items-center justify-between">
               <div className="mb-4 flex items-center gap-2">

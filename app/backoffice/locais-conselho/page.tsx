@@ -13,18 +13,22 @@ export default async function LocaisConselhoPage() {
   return (
     <div className="min-h-screen p-6">
       <h1 className="mb-8 text-center text-3xl font-bold">
-        Gerenciar Locais de Conselho
+        Gerir Locais de Aconselhamento
       </h1>
 
       {/* Formulário - Client Component */}
       <LocalForm />
 
-      {/* Lista de Locais */}
+      {/* Lista de Locais Aconselhados */}
       <div className="mx-auto mt-8 max-w-3xl rounded-lg bg-white p-6 shadow-md">
-        <h2 className="mb-4 text-2xl font-bold">Lista de Locais</h2>
+        <h2 className="mb-4 text-2xl font-bold">
+          Lista de Locais Aconselhados
+        </h2>
 
         {locais.length === 0 ? (
-          <p className="text-gray-500">Nenhum local cadastrado.</p>
+          <p className="text-gray-500">
+            Não foram encontrados locais aconselhados.
+          </p>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full border-collapse border border-gray-200">

@@ -11,7 +11,7 @@ export default async function CarSpottingsPage() {
   return (
     <div className="min-h-screen p-6">
       <h1 className="mb-8 text-center text-3xl font-bold">
-        Gerenciar Car Spottings
+        Gerir Car Spottings
       </h1>
 
       {/* Formulário - Client Component */}
@@ -22,7 +22,7 @@ export default async function CarSpottingsPage() {
         <h2 className="mb-4 text-2xl font-bold">Lista de Car Spottings</h2>
 
         {spottings.length === 0 ? (
-          <p className="text-gray-500">Nenhum car spotting cadastrado.</p>
+          <p className="text-gray-500">Não foram encontrados Car Spottings.</p>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full border-collapse border border-gray-200">
