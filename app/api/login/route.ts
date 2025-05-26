@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
 
     if (!user) {
       return NextResponse.json(
-        { message: 'Usuário não encontrado' },
+        { message: 'Utilizador não encontrado' },
         { status: 401 },
       )
     }
