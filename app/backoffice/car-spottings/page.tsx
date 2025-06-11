@@ -3,6 +3,7 @@ import Image from 'next/image'
 
 import { getCarSpottings } from '@/http/get-car-spottings'
 
+import { DeleteSpotting } from './components/delete-spotting'
 import { SpottingForm } from './components/spotting-form'
 
 export default async function CarSpottingsPage() {
@@ -32,6 +33,7 @@ export default async function CarSpottingsPage() {
                   <th className="border border-gray-300 p-2">Nome do Local</th>
                   <th className="border border-gray-300 p-2">Imagem</th>
                   <th className="border border-gray-300 p-2">Tempo Estimado</th>
+                  <th className="border border-gray-300 p-2">Excluir</th>
                 </tr>
               </thead>
 
@@ -61,6 +63,10 @@ export default async function CarSpottingsPage() {
 
                     <td className="border border-gray-300 p-2">
                       {dayjs(spotting.tempoEstimado).format('DD/MM/YYYY HH:mm')}
+                    </td>
+
+                    <td className="border border-gray-300 p-2 text-center">
+                      <DeleteSpotting id={spotting.id} />
                     </td>
                   </tr>
                 ))}

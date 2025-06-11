@@ -74,3 +74,24 @@ export async function POST(req: Request) {
     )
   }
 }
+
+export async function DELETE(req: Request) {
+  try {
+    const { id } = await req.json()
+
+    await prisma.locais.delete({
+      where: { id: Number(id) },
+    })
+
+    return NextResponse.json(
+      { message: 'Local excluído com sucesso' },
+      { status: 200 },
+    )
+  } catch (error) {
+    console.error('Erro ao excluir local:', error)
+    return NextResponse.json(
+      { error: 'Erro ao excluir local' },
+      { status: 500 },
+    )
+  }
+}

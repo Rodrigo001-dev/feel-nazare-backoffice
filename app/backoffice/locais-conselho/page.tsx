@@ -5,6 +5,7 @@ import Image from 'next/image'
 
 import { getLocais } from '@/http/get-locais'
 
+import { DeleteLocaisConselho } from './components/delete-locais-conselho'
 import { LocalForm } from './components/local-form'
 
 export default async function LocaisConselhoPage() {
@@ -38,6 +39,7 @@ export default async function LocaisConselhoPage() {
                   <th className="border border-gray-300 p-2">Nome</th>
                   <th className="border border-gray-300 p-2">Imagem</th>
                   <th className="border border-gray-300 p-2">Tempo Estimado</th>
+                  <th className="border border-gray-300 p-2">Excluir</th>
                 </tr>
               </thead>
 
@@ -65,6 +67,10 @@ export default async function LocaisConselhoPage() {
 
                     <td className="border border-gray-300 p-2">
                       {dayjs(local.tempoEstimado).format('DD/MM/YYYY HH:mm')}
+                    </td>
+
+                    <td className="w-1/12 border border-gray-300 p-2">
+                      <DeleteLocaisConselho id={local.id} />
                     </td>
                   </tr>
                 ))}

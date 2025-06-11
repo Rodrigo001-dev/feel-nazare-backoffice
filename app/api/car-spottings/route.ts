@@ -55,3 +55,23 @@ export async function POST(req: Request) {
     )
   }
 }
+
+export async function DELETE(req: Request) {
+  try {
+    const { id } = await req.json()
+
+    await prisma.carSpotting.delete({
+      where: { id: Number(id) },
+    })
+
+    return new Response(
+      JSON.stringify({ message: 'Car spotting excluído com sucesso' }),
+      { status: 200 },
+    )
+  } catch (error) {
+    return new Response(
+      JSON.stringify({ error: 'Erro ao excluir o car spotting' }),
+      { status: 500 },
+    )
+  }
+}
