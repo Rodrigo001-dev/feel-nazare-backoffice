@@ -4,7 +4,8 @@ CREATE TABLE "CarSpotting" (
     "morada" TEXT NOT NULL,
     "nome" TEXT NOT NULL,
     "imageUrl" TEXT,
-    "tempoEstimado" TIMESTAMP(3) NOT NULL,
+    "tempoEstimado" TEXT,
+    "mapLink" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -33,7 +34,8 @@ CREATE TABLE "locais" (
     "morada" TEXT NOT NULL,
     "nome" TEXT NOT NULL,
     "imageUrl" TEXT,
-    "tempoEstimado" TIMESTAMP(3),
+    "tempoEstimado" TEXT,
+    "mapLink" TEXT,
 
     CONSTRAINT "locais_pkey" PRIMARY KEY ("id")
 );

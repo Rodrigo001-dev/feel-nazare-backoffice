@@ -8,7 +8,8 @@ interface LocalData {
   morada: string
   nome: string
   imageUrl?: string
-  tempoEstimado?: Date
+  tempoEstimado?: string
+  mapLink?: string
 }
 
 // Manipulador de GET (Exemplo)
@@ -42,22 +43,13 @@ export async function POST(req: Request) {
     const data: LocalData = {
       morada: body.morada,
       nome: body.nome,
+      tempoEstimado: body.tempoEstimado,
+      mapLink: body?.mapLink || undefined,
     }
 
     // Adiciona imageUrl se fornecida
     if (body.imageUrl) {
       data.imageUrl = body.imageUrl
-    }
-
-    // Processa o tempo estimado se fornecido
-    if (body.tempoEstimado) {
-      const [hours, minutes] = body.tempoEstimado.split(':')
-      const tempoEstimadoDate = new Date()
-      tempoEstimadoDate.setHours(parseInt(hours, 10))
-      tempoEstimadoDate.setMinutes(parseInt(minutes, 10))
-      tempoEstimadoDate.setSeconds(0)
-      tempoEstimadoDate.setMilliseconds(0)
-      data.tempoEstimado = tempoEstimadoDate
     }
 
     // Cria o novo local no banco de dados

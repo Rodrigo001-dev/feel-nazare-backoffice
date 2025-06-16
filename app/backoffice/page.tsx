@@ -1,3 +1,4 @@
+import { MapPin } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -51,9 +52,20 @@ export default async function BackofficePage() {
                       <p className="text-sm text-gray-500">{spotting.morada}</p>
 
                       <p className="text-sm text-gray-400">
-                        Tempo estimado:{' '}
-                        {spotting.tempoEstimado.toLocaleString()}
+                        Tempo estimado: {spotting.tempoEstimado}
                       </p>
+
+                      {spotting.mapLink && (
+                        <a
+                          href={spotting.mapLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 flex w-fit items-center justify-center gap-2 rounded-lg bg-blue-500 px-2 py-1 text-white"
+                        >
+                          <MapPin className="size-5" />
+                          Ver no mapa
+                        </a>
+                      )}
                     </div>
                   </li>
                 ))}
@@ -100,8 +112,20 @@ export default async function BackofficePage() {
                       <p className="text-sm text-gray-500">{local.morada}</p>
                       {local.tempoEstimado && (
                         <p className="text-sm text-gray-400">
-                          Tempo estimado: {local.tempoEstimado.toLocaleString()}
+                          Tempo estimado: {local.tempoEstimado}
                         </p>
+                      )}
+
+                      {local.mapLink && (
+                        <a
+                          href={local.mapLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 flex w-fit items-center justify-center gap-2 rounded-lg bg-blue-500 px-2 py-1 text-white"
+                        >
+                          <MapPin className="size-5" />
+                          Ver no mapa
+                        </a>
                       )}
                     </div>
                   </li>

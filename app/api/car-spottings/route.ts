@@ -28,21 +28,14 @@ export async function POST(req: Request) {
       )
     }
 
-    // Converte o tempo (HH:mm) para um objeto Date
-    const [hours, minutes] = body.tempoEstimado.split(':')
-    const tempoEstimadoDate = new Date()
-    tempoEstimadoDate.setHours(parseInt(hours, 10))
-    tempoEstimadoDate.setMinutes(parseInt(minutes, 10))
-    tempoEstimadoDate.setSeconds(0)
-    tempoEstimadoDate.setMilliseconds(0)
-
     // Crie o car spotting no banco de dados
     const newSpotting = await prisma.carSpotting.create({
       data: {
         morada: body.morada,
         nome: body.nome,
         imageUrl: body.imageUrl, // Agora recebemos a URL diretamente
-        tempoEstimado: tempoEstimadoDate,
+        tempoEstimado: body.tempoEstimado,
+        mapLink: body.mapLink,
       },
     })
 

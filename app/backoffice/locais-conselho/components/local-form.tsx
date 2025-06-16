@@ -99,6 +99,7 @@ export function LocalForm() {
           morada: data.morada,
           nome: data.nome,
           tempoEstimado: data.tempoEstimado,
+          mapLink: data.mapLink,
           imageUrl,
         }),
       })
@@ -189,13 +190,27 @@ export function LocalForm() {
             Tempo Estimado
           </label>
           <input
-            type="time"
+            type="text"
             className="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
             {...register('tempoEstimado')}
           />
           {errors.tempoEstimado && (
             <span className="text-sm text-red-500">
               {errors.tempoEstimado.message}
+            </span>
+          )}
+        </div>
+
+        <div>
+          <label className="mb-2 block text-sm font-medium">Link do Mapa</label>
+          <input
+            type="text"
+            className="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            {...register('mapLink')}
+          />
+          {errors.mapLink && (
+            <span className="text-sm text-red-500">
+              {errors.mapLink.message}
             </span>
           )}
         </div>

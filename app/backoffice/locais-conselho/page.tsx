@@ -1,6 +1,6 @@
 // app/backoffice/locais-concelho/route.js
 
-import dayjs from 'dayjs'
+import { MapPin } from 'lucide-react'
 import Image from 'next/image'
 
 import { getLocais } from '@/http/get-locais'
@@ -39,6 +39,7 @@ export default async function LocaisConselhoPage() {
                   <th className="border border-gray-300 p-2">Nome</th>
                   <th className="border border-gray-300 p-2">Imagem</th>
                   <th className="border border-gray-300 p-2">Tempo Estimado</th>
+                  <th className="border border-gray-300">Link do Mapa</th>
                   <th className="border border-gray-300 p-2">Excluir</th>
                 </tr>
               </thead>
@@ -54,7 +55,7 @@ export default async function LocaisConselhoPage() {
 
                     <td className="border border-gray-300 p-2">
                       {local.imageUrl && (
-                        <div className="relative h-16 w-16">
+                        <div className="relative mx-auto h-16 w-16">
                           <Image
                             src={local.imageUrl}
                             alt={`Imagem de ${local.nome}`}
@@ -65,8 +66,21 @@ export default async function LocaisConselhoPage() {
                       )}
                     </td>
 
-                    <td className="border border-gray-300 p-2">
-                      {dayjs(local.tempoEstimado).format('DD/MM/YYYY HH:mm')}
+                    <td className="w-20 border border-gray-300 p-2">
+                      {local.tempoEstimado}
+                    </td>
+
+                    <td className="w-20 border border-gray-300">
+                      {local.mapLink && (
+                        <a
+                          href={local.mapLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center"
+                        >
+                          <MapPin className="size-5 cursor-pointer text-blue-500" />
+                        </a>
+                      )}
                     </td>
 
                     <td className="w-1/12 border border-gray-300 p-2">

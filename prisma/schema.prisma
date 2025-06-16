@@ -13,7 +13,8 @@ model CarSpotting {
   morada        String
   nome          String
   imageUrl      String?
-  tempoEstimado DateTime // Alterado para DateTime
+  tempoEstimado String? // Alterado para DateTime
+  mapLink       String?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
@@ -32,9 +33,10 @@ model users {
 }
 
 model locais {
-  id            Int       @id @default(autoincrement()) // Chave primária com autoincremento
+  id            Int     @id @default(autoincrement()) // Chave primária com autoincremento
   morada        String // Campo 'morada' que é obrigatório
   nome          String // Campo 'nome' que é obrigatório
   imageUrl      String? // Campo 'imagem' que é opcional (pode ser nulo)
-  tempoEstimado DateTime? // Campo 'tempoEstimado' que é opcional (pode ser nulo)
+  tempoEstimado String? // Campo 'tempoEstimado' que é opcional (pode ser nulo)
+  mapLink       String?
 }

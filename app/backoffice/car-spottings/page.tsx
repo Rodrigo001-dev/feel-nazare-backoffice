@@ -1,4 +1,4 @@
-import dayjs from 'dayjs'
+import { MapPin } from 'lucide-react'
 import Image from 'next/image'
 
 import { getCarSpottings } from '@/http/get-car-spottings'
@@ -33,6 +33,7 @@ export default async function CarSpottingsPage() {
                   <th className="border border-gray-300 p-2">Nome do Local</th>
                   <th className="border border-gray-300 p-2">Imagem</th>
                   <th className="border border-gray-300 p-2">Tempo Estimado</th>
+                  <th className="border border-gray-300">Link do Mapa</th>
                   <th className="border border-gray-300 p-2">Excluir</th>
                 </tr>
               </thead>
@@ -50,7 +51,7 @@ export default async function CarSpottingsPage() {
 
                     <td className="border border-gray-300 p-2">
                       {spotting.imageUrl && (
-                        <div className="relative h-16 w-16">
+                        <div className="relative mx-auto h-16 w-16">
                           <Image
                             src={spotting.imageUrl}
                             alt={`Imagem de ${spotting.nome}`}
@@ -61,8 +62,21 @@ export default async function CarSpottingsPage() {
                       )}
                     </td>
 
-                    <td className="border border-gray-300 p-2">
-                      {dayjs(spotting.tempoEstimado).format('DD/MM/YYYY HH:mm')}
+                    <td className="w-20 border border-gray-300 p-2">
+                      {spotting.tempoEstimado}
+                    </td>
+
+                    <td className="w-20 border border-gray-300">
+                      {spotting.mapLink && (
+                        <a
+                          href={spotting.mapLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center"
+                        >
+                          <MapPin className="size-5 cursor-pointer text-blue-500" />
+                        </a>
+                      )}
                     </td>
 
                     <td className="border border-gray-300 p-2 text-center">
